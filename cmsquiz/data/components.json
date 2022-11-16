@@ -1,0 +1,22 @@
+{
+  "dsp_spec_version": "0.0.1",
+  "last_updated_by": "",
+  "last_updated": "2022-11-12T15:39:05.429Z",
+  "entities": [
+    {
+      "id": "35cafdf5-f6b5-4a15-9a65-38ed9e1b81ea",
+      "class": "component",
+      "type": "page",
+      "related_entity_ids": [],
+      "snippets": {
+        "trigger": "",
+        "languages": {}
+      },
+      "renditions": [],
+      "name": "New component",
+      "tags": [],
+      "last_updated": "2022-11-12T15:39:38.540Z",
+      "last_updated_by": ""
+    }
+  ]
+}

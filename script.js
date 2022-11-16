@@ -1,140 +1,175 @@
-var counter = 0;
+
 var correctAnswers = 0;
 var inputVal;
 
 input = document.querySelector("#CMSentry");
 
-const sonyMusic = {link: "https://www.sonymusic.com", correct: "wordpress"};
-const Extraweg = {link: "https://www.extraweg.com", correct: "wix"};
-const Sephora = {link: "https://www.sephora.de", correct: "shopify"};
-const fauxlie = {link: "https://www.fauxliestudios.com", correct: "wix"};
-const SnoopDogg = {link: "https://www.snoopdogg.com", correct: "wordpress"};
-const Kunstrukt = {link: "https://www.kunstrukt.com", correct: "wix"};
-const AngryBirds = {link: "https://www.angrybirds.com", correct: "wordpress"};
-const SachsenAnhalt = {link: "https://www.sachsen-anhalt.de", correct: "typo3"};
-const dasKleid = {link: "https://www.daskleidsalzburg.at", correct:"wix"};
-const Shoos = {link: "https://www.shoos.com", correct:"wix"};
+let Websites = [
+    {
+        "name": "SnoopDogg",
+        "link": "https://www.snoopdogg.com",
+        "correct": "wordpress"
+    }, 
+    {
+        "name": "chip",
+        "link": "https://www.chip.de",
+        "correct": "no"
+    },
+    {
+        "name": "redbullring",
+        "link": "https://www.redbullring.com",
+        "correct": "wordpress" 
+    },
+    {
+        "name": "kali",
+        "link": "https://www.kali.org/",
+        "correct": "no"
+    },
+    {
+        "name": "wikipedia",
+        "link": "https://en.wikipedia.org",
+        "correct": "no"
+    },
+    {
+        "name": "herold",
+        "link": "https://www.herold.at/",
+        "correct": "wordpress"
+    },
+    {
+        "name": "mercedesbenzg",
+        "link": "https://www.mercedes-benz-g.at/unternehmen/",
+        "correct": "no"
+    },
+    {
+        "name": "americanmotors",
+        "link": "https://www.american-motors.at",
+        "correct": "wordpress"
+    },
+    {
+        "name": "oxweiz",
+        "link": "https://ox-weiz.at/",
+        "correct": "typo3"
+    },
+    {
+        "name": "jetpunk",
+        "link": "https://www.jetpunk.com",
+        "correct": "no"
+    },
+    {
+        "name": "fuberlin",
+        "link": "https://blogs.fu-berlin.de/",
+        "correct": "wordpress"
+    }
+];
 
+var CorrectWebsite = "";
+var Choice = "";
+RandomSite();
+
+
+// // Timer
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+let myVar = setInterval(setTime, 1000);
+
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
+ 
 
 
 function checkAnswer(inputAnswer, CorrectAnswer){
-    
     if(inputAnswer === CorrectAnswer){
         console.log("right answer");
-        counter += 1;
         correctAnswers += 1;
         document.querySelector("#CMSentry").value = '';
-        nextCMS(counter);
+        RandomSite();
     }    
 }
 
-function nextCMS(counter){
-    document.getElementById("numberCount").innerHTML = counter + "/ 10";
-    if(counter === 0){
-        document.getElementById('weblink').src = sonyMusic.link;
-    }
+function nextCMS(Choice, ChoiceLink){
+    console.log(Choice);
+    document.getElementById("numberCount").innerHTML = Websites.length + " left";
+    document.getElementById('weblink').src = ChoiceLink;  
 
-    if(counter === 1){
-        document.getElementById('weblink').src = Extraweg.link;
-    }
+};
 
-    if(counter === 2){
-        document.getElementById('weblink').src = Sephora.link;
+function RandomSite(){
+    
+    if(Websites.length > 0){
+        var RandomChoice = Websites[Math.floor(Math.random() * Websites.length)];
+        for (var i = 0; i < Websites.length; i++) {
+            // console.log(Websites[i]);
+            if (Websites[i] === RandomChoice) {
+                Websites.splice(i, 1);
+                // console.log("Removed element: " + spliced);
+                // console.log("Remaining elements: " + Websites);
+            }
+        }
+        Choice = RandomChoice.name;
+        CorrectWebsite = RandomChoice.correct;
+        // console.log(Choice);
+        nextCMS(Choice, RandomChoice.link);
     }
-
-    if(counter === 3){
-        document.getElementById('weblink').src = fauxlie.link;
-    }
-
-    if(counter === 4){
-        document.getElementById('weblink').src = SnoopDogg.link;
-    }
-
-    if(counter === 5){
-        document.getElementById('weblink').src = Kunstrukt.link;
-    }
-
-    if(counter === 6){
-        document.getElementById('weblink').src = AngryBirds.link;
-    }
-
-    if(counter === 7){
-        document.getElementById('weblink').src = SachsenAnhalt.link;
-    }
-
-    if(counter === 8){
-        document.getElementById('weblink').src = dasKleid.link;
-    }
-
-    if(counter === 9){
-        document.getElementById('weblink').src = Shoos.link;
-    }
-
-    if(counter === 10){
+    else{
         document.getElementById('weblink').style.display = "none";
         document.getElementById("CMSentry").style.display = "none";
-        const wonLabel = document.createElement("h3");
-        wonLabel.innerHTML = "Congratulations you are a cms pro";
-        wonLabel.style.backgroundColor = "green";
-        wonLabel.style.textAlign = "center";
-        wonLabel.style.width = "80%";
-        wonLabel.style.fontFamily = "Arial";
-        wonLabel.style.marginLeft = "9%";
-        wonLabel.style.padding = "20px";
-        const restart = document.createElement("a");
-        restart.innerHTML = "Play Again?";
-        restart.href = "index.html";
-        restart.style.textAlign = "center";
-        restart.style.fontFamily = "Arial";
-        restart.style.color = "black";
-        restart.style.marginLeft = "10%";
-        document.body.appendChild(wonLabel);
-        document.body.appendChild(restart);
+        clearInterval(myVar);
+        document.getElementById("timeText").style.display = "block";
+        document.getElementById("timeLabel").style.display = "block";
+        document.getElementById("playAgain").style.display = "block";
     }
-};
+}
 
 input.addEventListener("keypress", function(event) {
     // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
         var inputVal = document.querySelector("#CMSentry").value.toLowerCase();
-        if(counter === 0){
-            checkAnswer(inputVal, sonyMusic.correct);
-        }
-        if(counter === 1){
-            checkAnswer(inputVal, Extraweg.correct);
-        }
-        if(counter === 2){
-            checkAnswer(inputVal, Sephora.correct);
-        }
-        if(counter === 3){
-            checkAnswer(inputVal, fauxlie.correct);
-        }
-        if(counter === 4){
-            checkAnswer(inputVal, SnoopDogg.correct);
-        }
-        if(counter === 5){
-            checkAnswer(inputVal, Kunstrukt.correct);
-        }
-        if(counter === 6){
-            checkAnswer(inputVal, AngryBirds.correct);
-        }
-        if(counter === 7){
-            checkAnswer(inputVal, SachsenAnhalt.correct);
-        }
-        if(counter === 8){
-            checkAnswer(inputVal, dasKleid.correct);
-        }
-        if(counter === 9){
-            checkAnswer(inputVal, Shoos.correct);
-        }
+        checkAnswer(inputVal, CorrectWebsite);
+        
     }
-    });
+});
 
-// if(counter === 0){
+
+
+// All Comments 
+
+
+// const wonLabel = document.createElement("h3");
+// wonLabel.innerHTML = "Congratulations you are a cms pro";
+// wonLabel.style.backgroundColor = "green";
+// wonLabel.style.textAlign = "center";
+// wonLabel.style.width = "80%";
+// wonLabel.style.fontFamily = "Arial";
+// wonLabel.style.marginLeft = "9%";
+// wonLabel.style.padding = "20px";
+// const restart = document.createElement("a");
+// restart.innerHTML = "Play Again?";
+// restart.href = "index.html";
+// restart.style.textAlign = "center";
+// restart.style.fontFamily = "Arial";
+// restart.style.color = "black";
+// restart.style.marginLeft = "10%";
+// document.body.appendChild(wonLabel);
+// document.body.appendChild(restart);
+
+// if(Choice === 0){
     
     
 // }
-// if(counter === 1){
+// if(Choice === 1){
 //     document.getElementById('weblink').src = gymGleisdorf.link;
 //     checkAnswer(inputVal, gymGleisdorf.correct);
 // }

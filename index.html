@@ -3,16 +3,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMS Quiz</title>
+    <title>CmsQuiz</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
 </head>
 <style>
     body{
-        background-image: url(background.jpg);
-        background-size: inherit;
-        padding: 20%;
+        background-image: url(backgrad.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* padding: 20%; */
+        padding: 0px;
+        margin: 0px;
+        height: 100vh;
     }
 
-    a{
+
+    nav{
+        /* background-color: #005f3fbd; */
+        background-color: rgba(0,0,0,0.4);
+        width: 100%;
+        display: inline-block;
+        line-height: 80px;
+        overflow: hidden;
+    }
+
+    nav ul{
+        padding: 0px;
+        margin: 0px;
+        margin-left: 0%;
+    }
+
+    nav a{
+        display: inline;
+        padding: 50px;
+        background-color: transparent;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        /* padding-left: 0px; */
+    }
+
+
+    nav a:hover{
+        background-color: transparent;
+        /* color: black; */
+    }
+
+    nav a img{
+        
+        margin-top: 30px;
+    }
+
+    main{
+        padding: 20%;
+        padding-top: 15%;
+        padding-bottom: 0px;
+    }
+
+    main a{
         display: block;
         color: white;
         background-color: rgba(0, 0, 0, 0.221);
@@ -27,7 +76,7 @@
     }
 
     a:hover{
-        background-color: grey;
+        background-color: rgba(0, 0, 0, 0.449);
         cursor: pointer;
         transition: .2s;
     }
@@ -48,37 +97,126 @@
 
     /* Modal Content */
     .modal-content {
-    background-color: #fefefe;
+    background-color: #eaeaea;
     margin: auto;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
+    height: 60vh;
     }
 
     .modal-content h4{
         font-family: Arial, Helvetica, sans-serif;
     }
 
+    .modal-content li{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+
     /* The Close Button */
     .close {
-    color: #aaaaaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
     }
 
-    .close:hover,
-    .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+    .close:hover{
+        cursor: pointer;
     }
+
+    .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #005f3f;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover{
+    background-color: transparent;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.navLink{
+    display: inline;
+}
+
+#micon{
+    display: none;
+}
+
+@media(max-width: 600px){
+    #micon{
+        display: inline;
+        margin: 0px;
+        padding-left: 0px;
+        font-size: 20px;
+    }
+
+    .navLink{
+        display: none;
+    }
+
+    main{
+        padding-top: 25%;
+    }
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
 </style>
 <body>
+    <nav>
+        <ul>
+            <center><a href="index.html"><img src="logo-new.png" height="30px"/></a></center>
+            <!-- <a class="navLink" href="game.html">Start Quiz</a>
+            <a class="navLink" id="openModal2">Help</a>
+            <a id="micon" onclick="openNav()">☰</a> -->
+        </ul>
+    </nav>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="game.html">Start game</a>
+        <a id="openModal3">Help</a>
+    </div>
+    <main>
     <center>
         <a href="game.html">Start quiz</a>
         <a id="openModal">Help</a>
+        <a href="team.html">Our Team</a>
     </center>
 
 
@@ -95,20 +233,23 @@
                     <li>Wix</li>
                     <li>Jimdo</li>
                     <li>Joomla</li>
-                    <li>noCms</li>
-                    <li>Drupal</li><br />
+                    <li>Shopify</li>
+                    <li>Drupal</li>
+                    <li>no</li><br />
                 You have to enter the right answer to get to the next question
             </h4>
         </div>
 
     </div>
+    </main>
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
         
         // Get the button that opens the modal
         var btn = document.getElementById("openModal");
-        
+        var btn2 = document.getElementById("openModal2");
+        var btn3 = document.getElementById("openModal3");
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
         
@@ -127,6 +268,14 @@
           if (event.target == modal) {
             modal.style.display = "none";
           }
+        }
+
+        function openNav() {
+           document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
         }
     </script>
 </body>

@@ -1,27 +1,95 @@
+body{
+    background-image: url(background.jpg);
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(backgrad.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+}
+
 main{
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-sizing: border-box;
 }
 
 iframe{
     width: 100%;
     display: block;
     height: 80vh;
+    border-radius: 12px;
+    margin-top: 5px;
+    border: 0px;
 }
 
 p{
+    display: inline;
     margin-top: 30px;
-    margin-bottom: 0px;
-    padding-left: 10px;
+    margin-bottom: 5px;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
+#arrow{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+
+    
+}
+
+/* #numberCount{
+    float: right;
+    position: relative;
+} */
+
 input{
-    width: 95%;
-    border: 2px solid grey;
+    width: 92%;
+    border: 2px solid white;
+    background-color: rgba(0,0,0,0.4);
     /* outline: none; */
-    margin-top: 3px;
-    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color: white;
+    border-radius: 5px;
+    padding: 12px;
     font-size: 14px;
+}
+
+#timeText{
+    display: none;
+    margin-top: 40vh;
+    color: green;
+    font-size: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#timeLabel{
+    display: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+    font-size: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#playAgain{
+    display: none;
+    color: white;
+    font-size: 16px;
+    color: white;
+    text-decoration: underline;
+}
+
+@media(max-width: 600px){
+    main{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
