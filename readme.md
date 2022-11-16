@@ -1,3 +1,4 @@
+![favicon](https://user-images.githubusercontent.com/109417475/202215076-892d562f-aade-430e-ad76-236c9a5f712d.png)
 # CMS QUIZ
 
 ## Beschreibung
