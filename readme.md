@@ -2,8 +2,8 @@
 
 # CMS QUIZ
 
-## Beschreibung
-#### Das CMS QUIZ ist eine Web Applikation die als Quiz agiert in dem Quiz geht es darum von einer in einem iframe gezeigten Website das Content management System kurz CMS dahinter zu erraten geschrieben ist das Backend Script der Website mit JavaScript
+## Description
+#### The CMS QUIZ is a Web Application which works as a Quiz it is all about guessing the correct Contenct Management System aka. CMS behind a iframe shown an other Website which is using a CMS or not. The backend code is written in javascript
 
 #### Avaliable answers:
 - Wordpress
